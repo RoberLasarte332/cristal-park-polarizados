@@ -1,8 +1,18 @@
-// Cristal Park Polarizados - Script de interactividad básica
+    function abrirVisor(elemento) {
+      const modal = document.getElementById("visorGaleria");
+      const imgModal = document.getElementById("imgVisor");
+      const imgOriginal = elemento.getElementsByTagName('img')[0].src;
+      modal.style.display = "flex";
+      imgModal.src = imgOriginal;
+      document.body.style.overflow = "hidden";
+    }
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("Sitio de Cristal Park Polarizados cargado correctamente.");
+    function cerrarVisor() {
+      document.getElementById("visorGaleria").style.display = "none";
+      document.body.style.overflow = "auto";
+    }
 
-    // Aquí podrías añadir scripts para validación de formularios 
-    // o animaciones de entrada si lo deseas en el futuro.
-});
+    window.onclick = function(event) {
+      const modal = document.getElementById("visorGaleria");
+      if (event.target == modal) { cerrarVisor(); }
+    }
